@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AppTurismo.Models.actividadModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Actividades</h2><br />
+<h3>Seleccione actividades para registrar una reserva</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card text-center h-100" style="border:medium; border-color:dimgray">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </h4>
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.costo)
+                    </p>
+                    <p class="card-text">
+                        <b>Descuento:</b> @Html.DisplayFor(modelItem => item.cantidadPersonasDescuento) persona para un @Html.DisplayFor(modelItem => item.porcentajeDescuento)
+                    </p>
+
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Reservar", "Reserva", new { id = item.idActividad })" class="btn btn-info">Reservar</a>
+                </div>
+            </div>
+        </div> 
+}
+</div>

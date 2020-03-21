@@ -13,7 +13,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class reservaController : ApiController
+    public class ReservaController : ApiController
     {
         private actividad_turisticaEntities db = new actividad_turisticaEntities();
 
